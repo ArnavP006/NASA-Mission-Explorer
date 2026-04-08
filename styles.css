@@ -10,6 +10,23 @@
     --error: #ff4d4f;
     --error-glow: rgba(255, 77, 79, 0.3);
     --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg-grad-1: rgba(2, 4, 10, 0.7);
+    --bg-grad-2: rgba(2, 4, 10, 0.95);
+    --card-hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] {
+    --bg-dark: #f0f4f8;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --accent: #3182ce;
+    --accent-glow: rgba(49, 130, 206, 0.5);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(49, 130, 206, 0.3);
+    --glass-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --bg-grad-1: rgba(240, 244, 248, 0.8);
+    --bg-grad-2: rgba(240, 244, 248, 0.95);
+    --card-hover-bg: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -22,7 +39,7 @@ body {
     font-family: var(--font-main);
     background-color: var(--bg-dark);
     background-image: 
-        linear-gradient(to bottom, rgba(2, 4, 10, 0.7), rgba(2, 4, 10, 0.95)),
+        linear-gradient(to bottom, var(--bg-grad-1), var(--bg-grad-2)),
         url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2000&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
@@ -33,6 +50,7 @@ body {
     flex-direction: column;
     overflow-x: hidden;
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .sr-only {
@@ -466,3 +484,209 @@ body {
     .close-modal { top: 0.5rem; right: 1rem; font-size: 2.5rem; }
     .media-container { cursor: default; }
 }
+
+/* NEW STYLES FOR MILESTONE 3 */
+.theme-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-btn:hover {
+    transform: scale(1.1) rotate(20deg);
+}
+
+.controls-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+}
+.controls-panel.hidden {
+    display: none !important;
+}
+
+.control-group {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    min-width: 250px;
+}
+.control-group.modifiers {
+    flex: 0 0 auto;
+}
+
+#search-input, #birthday-picker {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color-scheme: dark;
+}
+[data-theme="light"] #search-input, [data-theme="light"] #birthday-picker {
+    background: rgba(255, 255, 255, 0.6);
+    color-scheme: light;
+}
+
+#search-input:focus, #birthday-picker:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.controls-panel select {
+    padding: 0.8rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+[data-theme="light"] .controls-panel select {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.controls-panel select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.mission-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    animation: fadeIn 0.5s ease backwards;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(92, 157, 245, 0.2);
+    background: var(--card-hover-bg);
+}
+
+.card-media {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: zoom-in;
+    display: block;
+}
+
+.card-media-iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.card-date {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.card-type {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+[data-theme="light"] .card-type {
+    background: rgba(255,255,255,0.85);
+    color: #000;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: grayscale(100%);
+}
+
+.like-btn.liked {
+    color: #ff4d4f;
+    filter: none;
+    transform: scale(1.2);
+}
+
+.like-btn:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .controls-panel {
+        flex-direction: column;
+    }
+    .control-group {
+        width: 100%;
+    }
+    .control-group.modifiers {
+        flex-direction: column;
+    }
+    .controls-panel select {
+        width: 100%;
+    }
+}
+
