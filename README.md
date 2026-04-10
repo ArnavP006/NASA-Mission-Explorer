@@ -1,94 +1,98 @@
-# NASA Mission Explorer
+# 🚀 NASA Mission Explorer
 
-## About
+## 🌌 Overview
 
-NASA Mission Explorer is a simple web app that uses NASA’s Astronomy Picture of the Day (APOD) API to show daily space images along with their details.
-
-The main idea was to make it interactive — users can pick any date (like their birthday) and see what NASA posted on that day.
+NASA Mission Explorer is a modern web application that allows users to explore NASA’s Astronomy Picture of the Day (APOD). Users can view recent space images, search missions, filter content, and even discover what NASA posted on their birthday.
 
 ---
 
-## What it does
+## ✨ Features
 
-* Fetches data from NASA’s APOD API
-* Shows image/video with title and explanation
-* Lets users select a date to explore past entries
-* Option to view images in HD and full screen
+* 🔍 Search missions by title or description
+* 🎯 Filter by media type (image/video)
+* 🔄 Sort by date or title
+* ❤️ Like/Favorite missions
+* 🎂 Birthday explorer (view APOD for any date)
+* 🌗 Dark / Light mode toggle
+* 🖼️ HD image view + fullscreen modal
+* 📱 Fully responsive design
 
 ---
 
-## API Used
+## 🔗 API Used
 
 * NASA APOD API
 * https://api.nasa.gov/planetary/apod
 
 Example:
 
-```id="ex1234"
-https://api.nasa.gov/planetary/apod?api_key=YOUR_API_KEY&date=YYYY-MM-DD
+```
+https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=YYYY-MM-DD
 ```
 
 ---
 
-## UI
+## 🛠️ Tech Stack
 
-* Dark space-themed design
-* Minimal layout (inspired by OpenAI / Google AI tools)
-* Clean and responsive
-
----
-
-## Tech Stack
-
-* HTML
-* CSS
-* JavaScript (Fetch API)
+* HTML5
+* CSS3 (Glassmorphism UI)
+* Vanilla JavaScript (ES6+)
+* Fetch API
 
 ---
 
-## How to Run
+## ⚙️ How to Run
 
-1. Clone the repo
-2. Get your API key from https://api.nasa.gov/
-3. Add it in the code:
+1. Clone the repository
+2. Open the project folder
+3. Replace API key in `script.js`:
 
-```js id="code123"
+```js
 const API_KEY = "your_api_key_here";
 ```
 
-4. Open `index.html`
+4. Open `index.html` in browser
 
 ---
 
-## Things to Keep in Mind
+## 🧠 Concepts Used
 
-* Use correct date format (`YYYY-MM-DD`)
-* Some days return videos instead of images
-* API won’t work for future dates
-* Handle errors to avoid crashes
+* Async/Await for API calls
+* Array Higher-Order Functions:
 
----
-
-## Future Plans
-
-* Add favorites
-* Improve UI/animations
-* Better video handling
-* Deploy online
+  * `map()`
+  * `filter()`
+  * `sort()`
+  * `find()`
+* DOM Manipulation
+* LocalStorage (theme persistence)
 
 ---
 
-## What I Learned
+## 🚀 Deployment
 
-* Working with APIs
-* Async JavaScript (fetch/async-await)
-* Basic UI/UX improvements
+Live Project: *(Add your Netlify/Vercel link here)*
 
 ---
 
-## Author
+## 📌 Notes
 
-Arnav Patil
+* Some APOD entries return videos instead of images
+* Future dates are not supported by the API
+* Fallback data is used if API limit is exceeded
+
+---
+
+## 📚 What I Learned
+
+* Working with real-world APIs
+* Writing clean and modular JavaScript
+* Building responsive UI/UX
+* Improving performance and user experience
+
+---
+
+## 👨‍💻 Author
+
+**Arnav Patil**
 GitHub: https://github.com/ArnavP006
-
----
